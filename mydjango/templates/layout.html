@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <title>{%block title%}{%endblock%}</title> 
+    <!-- 기본 bootstrap -->
+    {#<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />#}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"/>
+    <!-- bootstrap: cosmo theme -->
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" /> -->
+    
+    <!--<link rel='stylesheet' href='/static/style.css'>-->
+         <link rel='stylesheet' href="{% static "style.css" %}">
+    <script src="{% static "blogjquery.min.js" %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+</button>
+                <a class="navbar-brand" href="{% url 'blog:crawling' %}"style= font-size:25px> 꿀잼집합소 </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" style= font-size:15px >실시간 알림 커뮤니티 요청</a></li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+
+    {%block content %}
+    {%endblock%}
+
+
+    <div id="page-footer">
+        <div class="container">
+          <p class="text-muted">
+             &copy; 꿀잼 집합소!
+            여러 커뮤니티 글을 모아 보여드립니다. 
+             
+          </p> 
+        </div>
+    </div>
+    
+</body>
+</html>
