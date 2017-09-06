@@ -3,6 +3,22 @@
 
 
 
-body{
-
+ .box{
+       position:relative;
+       width:864px;
+       left:290px;
+       right:290px;
+       font-size:18px;
+ }
+ .list{
+       font-size: 20px;
+ }
+  #button{
+         position:relative;
+         left :380px;
+         font-size: 20px;
+  }
+.first{
+      border: 1px solid black;
+      padding:8px 8px 8px 8px;
 }

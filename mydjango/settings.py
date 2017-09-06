@@ -132,4 +132,5 @@ STATICFILES_DIRS = [
 ]
 #배포를 위한 설정
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
-
+#for debug tool-bar
+INTERNAL_IPS = ["127.0.0.1"]

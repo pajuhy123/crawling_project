@@ -245,7 +245,7 @@ def parse():
     req = requests.get('http://www.inven.co.kr/board/powerbbs.php?come_idx=2097&query=list&my=chu&category=%EC%9C%A0%EB%A8%B8&sort=PID&name=&subject=&content=&keyword=&orderby=&iskin=webzine').text
     soup_inben = BeautifulSoup(req, 'html.parser')
     #ruri
-    req = requests.get('http://bbs.ruliweb.com/best/selection?type=selection&orderby=best_id&range=24h').text
+    req = requests.get('http://bbs.ruliweb.com/best/selection').text
     soup_ruri = BeautifulSoup(req, 'html.parser')
     #utde
     req = requests.get('http://web.humoruniv.com/board/humor/list.html?table=pds&st=day').text.encode(encoding_map['iso-8859-1'])
@@ -365,9 +365,14 @@ def parse():
                     a = title.get('href')
                     data[11][title.text] = a
      #drip
+    n=0
     for title in soup_drip.select('td.title a'): 
-                    a = title.get('href')
-                    data[12][title.text.strip()] = a
+                if n == 0:
+                      n+=1
+                      continue
+                else:
+                     a = title.get('href')
+                     data[12][title.text.strip()] = a
     #theqoo
     j=0 
     n=1
@@ -535,7 +540,6 @@ def parse():
                     for t,l in data[i].items():
                         if n == x:
                             list[i][0],list[i][1]= t,l
-                            print(list[i][0],list[i][1])
                             break
                         else:
                             n+=1
@@ -554,7 +558,7 @@ def parse():
        ##DB에 저장
     for x in range(len(data[0])):
                     allsave(x)
-                    print('-----------')
+                    
                     
     
 while True:

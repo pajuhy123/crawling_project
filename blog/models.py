@@ -53,7 +53,7 @@ class CrawlingData(models.Model):
     link_ilbe = models.URLField( blank=True)
 
     def __str__(self):
-        return self.instiz
+        return self.ruri
 
 
 
