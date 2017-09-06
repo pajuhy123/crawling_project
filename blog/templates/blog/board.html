@@ -1,0 +1,69 @@
+{%extends "blog/layout.html"%}
+
+{%block content %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>꿀잼 집합소</h1> 
+            <p>실시간 인기글을 보길 원하는 사이트를 알려주세요.</p>
+            <p></p>
+        </div>
+
+        <div class="row">
+            <div class='col-sm-12'>
+                <div class="alert alert-info">
+                    <ol>
+                        <li>http://www.naver.com 처럼 원하는 사이트 주소를 입력.</li>
+                        <li>원하시는 부분을 구체적으로 알려주세요.</li>
+                    </ol>
+                </div>
+
+                <a href="{% url 'blog:board_new' %}" class="btn btn-primary pull-right">새글 쓰기</a>
+
+                <p>
+                    <form action="" method="get"> 
+                      <input type="text" name='q' value="{{q}}"/>
+                      <input type='submit' value="검색" class="btn btn-primary"/>
+                    </form>
+                </p>
+            </div>
+            <div class='container'>
+               <table class="table table-hover table-bordered">
+                   <thead>
+                       <tr>
+                          <th>id</th>
+                          <th>title</th>
+                          <th>author</th>
+                          <th>updated_at</th>
+                        </tr>
+                   </thead>
+                   <tbody>
+
+                  {% load el_pagination_tags %}
+                   {% paginate board %}
+                    {% for board in board%}
+                     <tr>   
+                            <td>{{board.id}}</td>
+                            <td> <a href="{% url 'blog:board_detail' board.id%}"> <!-- "{{ post.get_absolute_url}}"-->
+                                {{board.title}} </a>
+
+                            </td>
+                            
+                            <td><small> by {{board.user}}</small></td>
+                            <td><small> at{{board.updated_at}}</small></td>
+                     </tr>
+                    <br />
+                    {%endfor%}
+                   </tbody>
+                </table>
+                {%show_pages%}
+            </div>
+         </div>
+    </div>
+    
+
+     
+
+
+{%endblock%}
+

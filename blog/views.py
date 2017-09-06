@@ -4,12 +4,45 @@ from django.shortcuts import get_object_or_404, render, redirect,render_to_respo
 #페이지 네이션
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.contrib import messages
+from django.http import Http404
+from .forms import PostForm
+
 ###########
 from .models import CrawlingData
+from .models import Post
 ###########
 
 from el_pagination.decorators import page_template
 from django.template import RequestContext
+
+
+
+def board(request):
+    qs =  Post.objects.all()
+    q = request.GET.get('q','')
+    if q:
+        qs = qs.filter(title__icontains = q)
+    return render(request, 'blog/board.html',{'board': qs, 'q':q})
+
+def board_detail(request, id):
+
+    board = get_object_or_404(Post,id=id)  #위에 4가지 코드를 1줄로!
+    return render(request, 'blog/board_detail.html', {'board': board})
+
+def board_new(request):
+    if request.method =='POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save()  
+            messages.success(request, '새 포스팅을 저장했습니다.')
+            return redirect(post)  # 이미 model 에 post.get_absolute_url 함수를 구현 -->post_detail 로 이동
+    
+    else:
+        form = PostForm
+    return render(request, 'blog/board_form.html', {'form': form})
+
+
 
 
 def crawling(request):

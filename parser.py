@@ -566,5 +566,5 @@ while True:
     delete()
     parse()
     print('parsing ends')
-    print('sleep in 40s')
+    print('sleep in 60s')
     time.sleep(60) 

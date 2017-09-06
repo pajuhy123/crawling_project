@@ -1,6 +1,26 @@
 #blog/model.py
 from django.db import models
+from django.core.urlresolvers import reverse
 ############################
+
+
+class Post(models.Model):
+    user = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name ='제목') #길이 제한이 있는 문자열
+    content = models.TextField(verbose_name='내용')             #길이 제한이 없는 문자열
+    created_at = models.DateTimeField(auto_now_add = True) # 생성 될 떄, 자동 저장
+    updated_at = models.DateTimeField(auto_now=True)       # 갱신 될 때, 자동 갱신
+    
+    # 기본 정렬 설정
+    class Meta:
+        ordering = ['-id']
+
+    # 글 title 보이기
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:board_detail', args=[self.id])
 
 class CrawlingData(models.Model):
     instiz = models.CharField(max_length=200, blank=True)

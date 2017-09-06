@@ -32,11 +32,22 @@
                     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" style= font-size:15px >실시가 커뮤니티 인기 글 추가 요청</a></li>
+                    <li><a href="{% url 'blog:board' %}" style= font-size:15px >실시간 커뮤니티 인기 글 사이트 추가 요청</a></li>
                 </ul>
             </div>
         </div>
 </nav>
+
+{% if messages %}
+    <div class="container">
+        {% for message in messages %}
+           <div class='alert alert-{{message.tags}}'>
+                [{{ message.tags }}]    {# 메세지 Level#}
+                {{ message.message }} {# 실제 메세지 내용#}
+           </div>
+        {% endfor %}
+    </div>
+{% endif %}
 
 
     {%block content %}
