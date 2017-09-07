@@ -28,7 +28,7 @@
    <div class='btn btn-primary' style= 'background-color:DarkGoldenRod   '>드림엑스</div>
    <div class='btn btn-primary' style= 'background-color:Chocolate   '>플래시24</div>
    <div class='btn btn-primary' style= 'background-color:Brown  '>개드립</div>
-   <div class='btn btn-primary' style= 'background-color:Red  '>후방주의</div>
+   <div class='btn btn-primary' style= 'background-color:Red  '><a href='{% url 'blog:notice'%}'>후방주의만 보기</a></div>
 
    <div class='instiz1' ><br>
      {%if crawling%}
@@ -78,11 +78,13 @@
         //scroll event
         $('#callmorepost').click(function(){
           var page = $("#page").val();
-          if (page>=5){
-               alert('더 이상의 자료가 없습니다. 업데이트 되기를 기다려 주세요');
+          if(page<5){
+            callMorePostAjax(page);
+            $("#page").val(parseInt(page)+1);
           }
-          callMorePostAjax(page);
-          $("#page").val(parseInt(page)+1);
+          else{
+            alert('더 이상의 자료가 없습니다. 업데이트 되기를 기다려 주세요');
+          }
        });
       /* 스크롤시 자동으로 데이터 로딩
         $(window).scroll(function(){

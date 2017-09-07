@@ -1,0 +1,50 @@
+{%extends "blog/layout.html"%}
+
+
+
+{%block content %}
+<h3 align= center> 꿀잼 집합소 </h3> 
+ <p align= center> 여러 커뮤니티들의 실시간 인기글 모음 </p>
+ <hr />
+
+<div class= 'box'>
+   <div class='btn btn-primary' style= 'background-color:DarkSeaGreen '>에펨코리아</div>
+   <div class='btn btn-primary' style= 'background-color:GoldenRod '>오유</div>
+   <div class='btn btn-primary' style= 'background-color:IndianRed  '>네이트 판</div>
+   <div class='btn btn-primary' style= 'background-color:CadetBlue  '>SLR</div>
+   <div class='btn btn-primary' style= 'background-color:DarkCyan  '>MLB</div>
+   <div class='btn btn-primary' style= 'background-color:DarkKhaki '>클리앙</div>
+   <div class='btn btn-primary' style= 'background-color:CornflowerBlue  '>인벤</div>
+   <div class='btn btn-primary' style= 'background-color:DarkGrey   '>루리웹</div>
+   <div class='btn btn-primary' style= 'background-color:DarkOrange  '>웃긴대학</div>
+   <div class='btn btn-primary' style= 'background-color:Fuchsia  '>보배드림</div>
+   <div class='btn btn-primary' style= 'background-color:DarkCyan   '>와이고수</div>
+   <div class='btn btn-primary' style= 'background-color:DimGrey  '>일간베스트</div>
+   <div class='btn btn-primary' style= 'background-color:SkyBlue '>인스티즈</div>
+   <div class='btn btn-primary' style= 'background-color:DarkSalmon    '>더쿠</div>
+   <div class='btn btn-primary' style= 'background-color:BlueViolet   '>포모스</div>
+   <div class='btn btn-primary' style= 'background-color:DarkGoldenRod   '>드림엑스</div>
+   <div class='btn btn-primary' style= 'background-color:Chocolate   '>플래시24</div>
+   <div class='btn btn-primary' style= 'background-color:Brown  '>개드립</div>
+   <div class='btn btn-primary' style= 'background-color:Red  '><a href='{% url 'blog:notice'%}'>후방주의만 보기</a></div>
+
+<div class='instiz1' ><br>
+     {%if crawling%}
+      {% for crawling in crawling%}
+         <table class='list'>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='//{{crawling.link_flash2}}' target="_blank">{{crawling.flash2}}</a></div>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='//{{crawling.link_fomos1}}' target="_blank">{{crawling.fomos1}}</a></div>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='//{{crawling.link_dream1}}' target="_blank">{{crawling.dream1}}</a></div>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='{{crawling.link_namsung}}' target="_blank">{{crawling.namsung}}</a></div>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='{{crawling.link_dogge}}' target="_blank">{{crawling.dogge}}</a></div>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='//{{crawling.link_bobe2}}' target="_blank">{{crawling.bobe2}}</a></div>
+         <div class='first'>후방주의&nbsp;&nbsp;<a href='//{{crawling.link_flash1}}' target="_blank">{{crawling.flash1}}</a></div>
+        </table>
+       {%endfor%}
+      {%else%}
+      <p>데이터를 가져오고 있습니다. 10 초 뒤  새로고침 하시길 바랍니다. </p>
+    {%endif%}
+ </div>
+
+</div>
+{%endblock%}

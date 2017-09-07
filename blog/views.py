@@ -17,6 +17,11 @@ from el_pagination.decorators import page_template
 from django.template import RequestContext
 
 
+def notice(request):
+    qs =  CrawlingData.objects.all()
+    return render(request, 'blog/notice.html', {'crawling': qs})
+
+
 
 def board(request):
     qs =  Post.objects.all()

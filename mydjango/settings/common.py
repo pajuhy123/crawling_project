@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,10 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'el_pagination',
-    'imagekit',
     'bootstrap3',
-    'debug_toolbar',
-    'django_extensions', 
     'blog',
 
 ]
@@ -132,5 +129,8 @@ STATICFILES_DIRS = [
 ]
 #배포를 위한 설정
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
-#for debug tool-bar
-INTERNAL_IPS = ["127.0.0.1"]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media ')
+
