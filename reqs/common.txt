@@ -1,5 +1,5 @@
-django==1.11.4
-django-bootstrap3==9.0.0
-django-el-pagination==3.1.0
+django
+django-bootstrap3
+django-el-pagination
 request
-pillow 
+pillow
