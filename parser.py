@@ -4,7 +4,7 @@ import logging
 import requests
 from bs4 import BeautifulSoup
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mydjango.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mydjango.settings.prod_aws_eb")
 import django
 django.setup()
 

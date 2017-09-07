@@ -6,7 +6,7 @@ DEBUG = True
 
 import pymysql
 pymysql.install_as_MySQLdb() # pymysql이 MySQLdb처럼 동작토록 세팅
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.mysql'),
@@ -17,7 +17,7 @@ DATABASES = {
         'PORT': os.environ['DB_PORT'],
     },
 }
-
+'''
 INSTALLED_APPS += ['storages'] 
 # django-storages 앱 의존성 추가
 # 기본 static/media 저장소를 django-storages로 변경 
