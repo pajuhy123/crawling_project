@@ -567,4 +567,4 @@ while True:
     parse()
     print('parsing ends')
     print('sleep in 1 hour')
-    time.sleep(3600) 
+    time.sleep(60) 
