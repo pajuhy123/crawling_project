@@ -1,5 +1,5 @@
 from .common import *
-'''
+
 INSTALLED_APPS += [ 
     'imagekit',
     'debug_toolbar',
@@ -12,4 +12,3 @@ MIDDLEWARE += [
 
 #for debug tool-bar
 INTERNAL_IPS = ["127.0.0.1"]
-'''
